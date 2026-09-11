@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ЯВКА-75 — от одного решения зависит счёт</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0a0f16;color:#f3f7fc;font:17px/1.68 Georgia,"Times New Roman",serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 70px}
+.hero{position:relative;min-height:86vh;display:flex;align-items:flex-end}
+.hero img{width:100%;height:86vh;object-fit:cover;display:block;filter:saturate(1.1)}
+.hero .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,9,16,.12) 0%,rgba(5,9,16,.55) 50%,rgba(5,9,16,.97) 100%)}
+.hero .tx{position:absolute;left:0;right:0;bottom:0;padding:28px 24px 38px;max-width:980px;margin:0 auto;text-align:center}
+.kicker{display:inline-block;background:#ffb347;color:#1b1206;font-weight:700;border-radius:22px;padding:6px 16px;font-size:14px;letter-spacing:.5px}
+h1{text-align:center;font-size:clamp(30px,5.6vw,58px);line-height:1.08;margin:14px 0 10px;color:#fff;text-shadow:0 3px 22px rgba(0,0,0,.7)}
+h1 em{font-style:normal;color:#ffd27a}
+.lead{text-align:center;font-size:clamp(17px,2.2vw,21px);color:#eaf1fb;max-width:780px}
+h2{text-align:center;font-size:clamp(23px,3.2vw,34px);margin:52px 0 10px;color:#ffd27a}
+.sub{text-align:center;color:#c9d8ea;font-size:17px;margin:0 0 6px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:18px}
+.card{background:#121b26;border:1px solid #24384f;border-radius:16px;padding:18px 20px}
+.card b{color:#ffd27a;display:block;margin-bottom:4px;font-size:18px}
+.card p{margin:0;color:#c9d8ea;font-size:16px}
+.ic{font-size:26px}
+.punch{text-align:center;text-align:center;font-size:clamp(21px,3.3vw,34px);line-height:1.3;margin:46px 0;color:#fff;border-left:5px solid #ffb347;padding-left:20px}
+.punch b{color:#ffd27a}
+.pic{border-radius:18px;overflow:hidden;border:1px solid #24384f;margin:30px 0}
+.pic img{width:100%;display:block}
+.cap{padding:12px 18px;background:#0f1720;color:#9db6d1;font-size:14px;text-align:center}
+.qa{margin-top:18px}
+.qa .row{border-bottom:1px dashed #22334a;padding:14px 0}
+.qa .q{color:#ffd27a;font-weight:700}
+.qa .a{color:#dbe7f7}
+.who{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:18px}
+.who .card{border-left:4px solid #ffb347}
+.steps{counter-reset:s;margin-top:18px}
+.step{position:relative;padding:14px 0 14px 62px;border-bottom:1px dashed #22334a}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:12px;width:42px;height:42px;border-radius:50%;background:#ffb347;color:#1b1206;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:20px}
+.cta{margin:46px 0 0;background:linear-gradient(120deg,#233a5c,#101b2b);border:1px solid #2b3a55;border-radius:20px;padding:28px;text-align:center}
+.cta a{display:inline-block;background:#ffb347;color:#1b1206;text-decoration:none;font-weight:700;border-radius:14px;padding:15px 30px;font-size:19px;margin-top:12px}
+.f{margin-top:38px;text-align:center;color:#6c88a8;font-size:13px}
+@media(max-width:640px){.hero{min-height:74vh}.hero img{height:74vh}}
+</style></head><body>
+
+<div class="hero">
+  <img src="https://fondsoratnik.github.io/-/app/vitrina/together.jpg" alt="Утро, люди идут вместе">
+  <div class="ov"></div>
+  <div class="tx">
+    <div class="kicker">ПРОЕКТ «ЯВКА-75» · 18–20 СЕНТЯБРЯ</div>
+    <h1>Один голос не решает.<br><em>Решает сумма — и в этой сумме<br>не хватает именно вас.</em></h1>
+    <p class="lead">Мы не обещаем чудес и не просим верить на слово. Мы просим одного: чтобы вас посчитали. Это единственный день, когда вас нельзя заменить и нельзя проигнорировать.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <p class="punch">Пока мы молчим — решают за нас.<br><b>Приходим — начинают считаться с нами.</b></p>
+
+  <h2>Разные люди — одна цель</h2>
+  <p class="sub">Каждому важно своё. Но у всех один день.</p>
+  <div class="who">
+    <div class="card"><div class="ic">🎖️</div><b>Ветеранам</b><p>Ваш опыт — не архив. Он нужен сегодня: людям, городу, стране.</p></div>
+    <div class="card"><div class="ic">👨‍👩‍👦</div><b>Родителям</b><p>Дети не слушают слова — они запоминают поступки. Тот день станет примером.</p></div>
+    <div class="card"><div class="ic">🧑‍💼</div><b>Молодым</b><p>Хватит ждать, когда вас позовут. Придите сами — и вас услышат.</p></div>
+    <div class="card"><div class="ic">🏡</div><b>Обычным людям</b><p>От вас не требуют всей жизни. Один день. Один шаг. Одну строку в ответ.</p></div>
+  </div>
+
+  <div class="pic"><img src="https://fondsoratnik.github.io/-/app/vitrina/veteran.jpg" alt="Ветеран"><div class="cap">Он уже однажды не промолчал. И сейчас не промолчит.</div></div>
+
+  <p class="punch">Ваше слово не «галочка в списке».<br><b>Это вес, который нельзя подделать.</b></p>
+
+  <div class="pic"><img src="https://fondsoratnik.github.io/-/app/vitrina/family.jpg" alt="Отец и сын на рассвете"><div class="cap">Что увидят ваши дети — зависит от того, что вы сделаете в этот день.</div></div>
+
+  <h2>Закрываем сомнения — честно</h2>
+  <div class="qa">
+    <div class="row"><div class="q">«Мой голос ничего не решит»</div><div class="a">Решает не голос, а сумма. Счёт идёт на единицы — поэтому и не хватает вас.</div></div>
+    <div class="row"><div class="q">«Всё уже решено без нас»</div><div class="a">Решено ровно до тех пор, пока мы молчим. Молчание — это тоже решение, только чужое.</div></div>
+    <div class="row"><div class="q">«Мне некогда»</div><div class="a">Это один день из года. Большая часть жизни уходит на меньшие дела.</div></div>
+    <div class="row"><div class="q">«Меня никто не слышит»</div><div class="a">Одиночку не слышат. Нас — услышат. Для этого и нужен каждый.</div></div>
+    <div class="row"><div class="q">«Зачем это мне?»</div><div class="a">Затем, что решения касаются ваших цен, детей и улицы. Не приходить — значит согласиться на что угодно.</div></div>
+    <div class="row"><div class="q">«Боюсь»</div><div class="a">Понимаем. Но страх проходит, а последствия остаются. Рядом будут те, кто тоже боялся и пришёл.</div></div>
+  </div>
+
+  <div class="pic"><img src="https://fondsoratnik.github.io/-/app/vitrina/hands.jpg" alt="Руки, документ"><div class="cap">Передайте дальше. Один приводит двух — так и собирается счёт.</div></div>
+
+  <h2>26 лет обмана рушится в один миг</h2>
+  <p class="sub">Об этом нам рассказали ещё в сказке — задолго до нас.</p>
+  <div class="qa">
+    <div class="row"><div class="q">Одно подменённое слово</div><div class="a">«Родила царица в ночь не то сына, не то дочь…» — так исказили правду в письме к царю. И семья разрушена, и годы потеряны. <b>Самое страшное оружие — не меч, а искажённое слово.</b></div></div>
+    <div class="row"><div class="q">26, 41, 73 года во лжи</div><div class="a">Нас разводили нитями: то одним страхом, то другим. Все эти ниточки сходятся сегодня в одну точку.</div></div>
+    <div class="row"><div class="q">Ложь исчерпала себя</div><div class="a">Не потому, что кто-то громко её разоблачил, — а потому, что <b>больше нечем перехватывать ваше внимание</b>.</div></div>
+    <div class="row"><div class="q">Зависть — медленный огонь</div><div class="a">Он горит годами и не даёт ни тепла, ни света — только съедает того, в ком горит. Не выжигайте свою жизнь, глядя на чужое.</div></div>
+    <div class="row"><div class="q">Три девицы пряли под окном</div><div class="a">Кто-то захотел накормить мир, кто-то одеть, а одна — дать новую жизнь. <b>Из этого ВЫБОРА родилась судьба.</b></div></div>
+  </div>
+
+  <div class="pic"><img src="https://fondsoratnik.github.io/-/app/vitrina/pautina.jpg" alt="Паутина лжи рвётся светом"><div class="cap">Так рвётся паутина лжи — когда правда собралась в одном месте.</div></div>
+
+  <p class="punch">Осталось прийти туда, где ещё предлагают сделать <b>ВЫБОР</b>.</p>
+  <p class="sub" style="font-size:19px">Царь Салтан тоже не сразу приплыл на остров — приплыл, когда вся правда собралась в одной точке. <b>Там 26 лет обмана рушится в один миг.</b></p>
+
+  <h2>Что нужно от вас — три шага</h2>
+  <div class="steps">
+    <div class="step"><b>Подтвердите участие.</b> Одна строка в ответ: «участвую». Этого достаточно, чтобы вас включили в списки.</div>
+    <div class="step"><b>Скажите двум своим.</b> Отцу, брату, товарищу, соседу. Личное слово работает лучше любой листовки.</div>
+    <div class="step"><b>Придите 18–20 сентября.</b> Один день, спокойно и с достоинством. Мы подскажем, где и как — по шагам.</div>
+  </div>
+
+  <h2>Наши правила — без обмана</h2>
+  <ul>
+    <li><b>Только проверенные факты.</b> Ни одного слова, за которое нечем ответить.</li>
+    <li><b>Без давления и запугивания.</b> Мы не пугаем — мы зовём.</li>
+    <li><b>Ваши данные — под защитой.</b> Личное остаётся личным, наружу — только то, что вы разрешили.</li>
+    <li><b>Мы рядом весь путь.</b> Не бросим на полпути: подскажем, ответим, доведём до конца.</li>
+  </ul>
+
+  <p class="punch">Победа не приходит к тому, кто ждёт.<br><b>Она приходит к тем, кто пришёл.</b></p>
+
+  <div class="cta">
+    <div style="font-size:24px;color:#ffd27a">Присоединяйтесь. Одна строка — и вы в строю.</div>
+    <p style="color:#c9d8ea;margin:10px 0 0">Напишите: «участвую» и своё имя. Мы ответим в тот же день и скажем следующий шаг.</p>
+    <a href="mailto:fondsoratnik@bk.ru">Написать: fondsoratnik@bk.ru</a>
+  </div>
+
+  <div class="f">Проект «ЯВКА-75» · Общероссийское офицерское собрание · Фонд «Соратник» · 2026</div>
+</div></body></html>
