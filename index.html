@@ -1,310 +1,61 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Завод АвтоКло — цифровой организм, построенный с AutoClaw</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Проект «ЯВКА-75» — витрина</title>
 <style>
-  :root{
-    --bg:#0b0e14; --panel:#12161f; --panel2:#171c27; --line:#262d3c;
-    --amber:#f0a832; --amber2:#ffc95e; --ink:#e8e6df; --mut:#98a1ad;
-    --teal:#2FAD9B; --red:#C42026; --violet:#ab82ff;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,Arial,sans-serif;line-height:1.6;overflow-x:hidden}
-  a{color:var(--amber2)}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
-  /* HERO */
-  .hero{position:relative;padding:72px 0 56px;background:
-    radial-gradient(1000px 420px at 70% -10%, rgba(240,168,50,.14), transparent 60%),
-    radial-gradient(700px 300px at 10% 10%, rgba(47,173,155,.10), transparent 60%),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 1px, transparent 1px 90px),
-    var(--bg);}
-  .stamp{display:inline-block;border:2px solid var(--amber);color:var(--amber);font-weight:700;letter-spacing:.14em;font-size:12px;padding:5px 14px;border-radius:4px;transform:rotate(-2deg);margin-bottom:18px}
-  .hero h1{font-size:clamp(30px,5.4vw,52px);line-height:1.12;letter-spacing:.01em}
-  .hero h1 b{color:var(--amber2)}
-  .hero .sub{margin-top:16px;font-size:clamp(15px,2.1vw,19px);color:var(--mut);max-width:760px}
-  .hero .sub b{color:var(--ink)}
-  .who{margin-top:14px;font-size:14px;color:var(--mut)}
-  .who b{color:var(--teal)}
-  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-  .badge{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:12.5px;color:var(--ink)}
-  .badge em{color:var(--amber);font-style:normal;font-weight:700}
-  /* COUNTERS */
-  .counters{margin-top:38px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-  .cnt{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 14px;text-align:center}
-  .cnt .n{font-size:clamp(24px,3.4vw,34px);font-weight:800;color:var(--amber2);font-variant-numeric:tabular-nums}
-  .cnt .t{font-size:12px;color:var(--mut);margin-top:3px}
-  /* SECTIONS */
-  section{padding:54px 0}
-  section:nth-child(even){background:var(--panel)}
-  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.16em;color:var(--teal);font-weight:700;text-transform:uppercase}
-  .kicker::before{content:'';width:26px;height:2px;background:var(--teal)}
-  h2{font-size:clamp(22px,3.2vw,32px);margin:10px 0 8px}
-  .lead{color:var(--mut);max-width:820px;font-size:15.5px}
-  .lead b{color:var(--ink)}
-  /* ORGANISM PYRAMID */
-  .pyr{margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:10px}
-  .plank{position:relative;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px 18px;text-align:center}
-  .plank .tt{font-weight:700}
-  .plank .ss{font-size:12.5px;color:var(--mut)}
-  .plank.p-dir{width:min(340px,90%);border-color:var(--amber);box-shadow:0 0 0 1px rgba(240,168,50,.25)}
-  .plank.p-hq{width:min(460px,94%);border-color:var(--amber2)}
-  .plank.p-dep{width:min(760px,98%)}
-  .plank.p-base{width:min(880px,100%);border-style:dashed}
-  .orgs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:8px}
-  .org{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:13px}
-  .machines{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:8px}
-  .arrow{color:var(--mut);font-size:18px;line-height:1}
-  .note{margin-top:12px;font-size:13px;color:var(--mut);text-align:center}
-  /* SCENE GOALS */
-  .scene{margin-top:24px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-  .strip{padding:14px 18px;border-left:4px solid;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-  .strip .nm{font-weight:700;min-width:210px}
-  .strip .chips{display:flex;flex-wrap:wrap;gap:6px}
-  .chip{font-size:11.5px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--mut)}
-  .s1{background:rgba(127,212,168,.06);border-left-color:#7fd4a8}
-  .s2{background:rgba(93,156,236,.06);border-left-color:#5d9cec}
-  .s3{background:rgba(171,130,255,.06);border-left-color:#ab82ff}
-  .s4{background:rgba(255,210,122,.06);border-left-color:#ffd27a}
-  /* LIVE MOCK OF CONFIGURATOR */
-  .cfg-mock{margin:26px 0 6px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0a1120}
-  .cfg-head{display:flex;align-items:center;gap:8px;background:#101c33;border-bottom:2px solid #ffd27a;padding:7px 12px;font-size:11px}
-  .cfg-head .dot{width:9px;height:9px;border-radius:50%;background:var(--red)}
-  .cfg-head .addr{color:var(--mut);font-size:10.5px;background:#0b0f14;border-radius:6px;padding:2px 10px}
-  .cfg-tabs{display:flex;gap:6px;padding:7px 12px;background:#0d1526;border-bottom:1px solid var(--line);font-size:10.5px;flex-wrap:wrap}
-  .cfg-tab{padding:3px 11px;border-radius:6px;background:#16233a;color:#dbe7f7;border:1px solid #233a5c}
-  .cfg-tab.on{background:#ffd27a;color:#1a2a4a;font-weight:700;border-color:#ffd27a}
-  .cfg-body{position:relative;height:330px;background:#0a1120;background-image:radial-gradient(circle,#1d2942 1px,transparent 1px);background-size:22px 22px}
-  .cfg-side{position:absolute;left:0;top:0;bottom:0;width:30px;background:#0e1a30;border-right:1px solid #233a5c;display:flex;flex-direction:column;gap:7px;padding:8px 0;align-items:center;font-size:11px;color:#8fb7ff}
-  .cfg-cell{position:absolute;background:#16233a;border:2px solid #4a6a94;border-radius:8px;padding:5px 11px;font-size:11px;color:#dbe7f7;white-space:nowrap}
-  .cfg-cell.gold{border-color:#ffd27a}
-  .cfg-ln{position:absolute;height:2px;background:#7fd4e0;opacity:.7;transform-origin:0 0}
-  @keyframes swim{0%{transform:translate(0,0)}22%{transform:translate(58px,-22px)}46%{transform:translate(112px,4px)}70%{transform:translate(64px,26px)}100%{transform:translate(0,0)}}
-  .cfg-swim{animation:swim 9s ease-in-out infinite;border-color:#7fd4a8}
-  @keyframes glow{0%,100%{border-color:#4a6a94}50%{border-color:#ffd27a}}
-  .cfg-pulse{animation:glow 3s ease-in-out infinite}
-  @keyframes toastIn{0%,68%{opacity:0;transform:translateY(10px)}78%,90%{opacity:1;transform:translateY(0)}100%{opacity:0}}
-  .cfg-toast{position:absolute;right:14px;bottom:12px;background:#1d3a24;color:#7fd4a8;border:1px solid #7fd4a8;border-radius:8px;padding:5px 12px;font-size:11px;animation:toastIn 9s ease-in-out infinite}
-  .cfg-zoom{position:absolute;right:10px;top:10px;background:#101c33;border:1px solid #233a5c;border-radius:8px;padding:4px 8px;font-size:10px;color:#8fb7ff;display:flex;gap:6px;align-items:center}
-  /* TIMELINE */
-  .tl{margin-top:24px;border-left:2px solid var(--line);padding-left:22px}
-  .tl .ev{position:relative;padding:10px 0 10px 6px}
-  .tl .ev::before{content:'';position:absolute;left:-30px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--amber);border:3px solid var(--bg)}
-  .tl .d{font-size:12px;color:var(--amber);font-weight:700;letter-spacing:.06em}
-  .tl .w{font-size:14.5px}
-  .tl .w span{color:var(--mut)}
-  /* PRODUCTS GRID */
-  .grid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-  .card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px}
-  .card h3{font-size:15.5px;margin-bottom:6px}
-  .card p{font-size:13px;color:var(--mut)}
-  .card .tag{display:inline-block;margin-top:10px;font-size:11px;color:var(--teal);border:1px solid rgba(47,173,155,.4);border-radius:999px;padding:2px 10px}
-  /* FACTORY DEMO */
-  .demo{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media(max-width:760px){.demo{grid-template-columns:1fr}}
-  .demo-box{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:18px}
-  .demo-box h3{color:var(--amber2);margin-bottom:8px;font-size:16px}
-  .demo-box p{font-size:13.5px;color:var(--mut)}
-  .cert-mock{margin-top:12px;background:var(--parch);color:#3a2c12;border-radius:8px;padding:16px 18px;position:relative;box-shadow:0 8px 30px rgba(0,0,0,.35)}
-  .cert-mock::before{content:'';position:absolute;inset:6px;border:2px solid var(--red);border-radius:5px;pointer-events:none}
-  .cert-mock .cg{color:var(--red);font-weight:800;letter-spacing:.18em;font-size:12px;text-align:center}
-  .cert-mock .cn{font-size:20px;text-align:center;font-weight:700;margin-top:6px}
-  .cert-mock .cc{font-size:12.5px;text-align:center;margin-top:6px;color:#6b5426}
-  /* AGENTS */
-  .agents{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:22px}
-  .ag{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
-  .ag .e{font-size:26px}
-  .ag .n{font-weight:700;margin-top:6px;font-size:14px}
-  .ag .r{font-size:11.5px;color:var(--mut)}
-  /* QUOTE */
-  .quote{margin:26px 0 0;background:var(--panel2);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:16px 20px;font-size:14.5px;color:var(--mut)}
-  .quote b{color:var(--ink)}
-  /* FOOTER CTA */
-  .cta{padding:56px 0;background:linear-gradient(135deg,rgba(240,168,50,.10),rgba(47,173,155,.08)),var(--panel)}
-  .cta h2{color:var(--amber2)}
-  .cta .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-  .pill{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-size:13.5px}
-  footer{padding:30px 0 46px;text-align:center;color:var(--mut);font-size:13px}
-  footer .big{color:var(--amber);font-weight:800;letter-spacing:.12em}
+body{margin:0;background:#0b0f14;color:#dbe7f7;font:16px/1.7 Georgia,"Times New Roman",serif}
+.hero{background:linear-gradient(135deg,#0d1b33 0%,#12305c 55%,#0b0f14 100%);padding:56px 22px 38px;text-align:center;border-bottom:3px solid #d8b64a}
+.hero h1{margin:0;font-size:33px;color:#ffd27a;letter-spacing:2px}
+.hero .sub{font-size:15px;color:#8fb7ff;margin-top:10px}
+.wrap{max-width:860px;margin:0 auto;padding:30px 20px 70px}
+h2{color:#ffd27a;font-size:21px;border-bottom:1px dashed #2b3340;padding-bottom:6px;margin:32px 0 12px}
+.card{background:#12161f;border:1px solid #2b3340;border-left:4px solid #d8b64a;border-radius:10px;padding:14px 18px;margin:10px 0}
+ul{padding-left:22px}
+li{margin:6px 0}
+.f{margin-top:38px;text-align:center;font-size:13px;color:#5f7a9d}
+a{color:#ffd27a}
 </style>
 </head>
 <body>
-
 <div class="hero">
-  <div class="wrap">
-    <div class="stamp">ПОСТРОЕНО С AUTOCLAW · 1–7 СЕНТЯБРЯ 2026</div>
-    <h1>Завод АвтоКло — <b>цифровой организм</b>, который построил себя сам</h1>
-    <p class="sub"><b>Что это:</b> штаб-фабрика из семи ИИ-агентов, которая за неделю оцифровала архив фонда (280 файлов → база <b>10 902 человека × 243 колонки</b>), поставила на конвейер выпуск документов — и управляет собой через живую карту организма.<br><b>Проблема:</b> у общественных организаций нет денег на IT-отдел — завод заменяет его целиком. <b>Для кого:</b> фонды, клубы, избирательные кампании, малый бизнес.</p>
-    <p class="who">Оператор завода — человек без команды программистов. Всё ниже сделано <b>с AutoClaw</b>: замысел → декомпозиция → код → документы → контроль качества.</p>
-    <div class="badges">
-      <div class="badge"><em>7</em> ИИ-агентов в штате</div>
-      <div class="badge"><em>46+</em> продуктов выпущено</div>
-      <div class="badge"><em>24/7</em> сервер с самовосстановлением</div>
-      <div class="badge"><em>0</em> строк кода написано человеком</div>
-    </div>
-    <div class="counters">
-      <div class="cnt"><div class="n">10 902</div><div class="t">записей в мастер-базе</div></div>
-      <div class="cnt"><div class="n">243</div><div class="t">колонки данных</div></div>
-      <div class="cnt"><div class="n">280</div><div class="t">источников синтезировано</div></div>
-      <div class="cnt"><div class="n">142</div><div class="t">бумажные анкеты оцифрованы ИИ</div></div>
-      <div class="cnt"><div class="n">4</div><div class="t">перспективы стратегической карты</div></div>
-      <div class="cnt"><div class="n">7</div><div class="t">дней от нуля до организма</div></div>
-    </div>
-  </div>
+  <h1>ПРОЕКТ «ЯВКА-75»</h1>
+  <div class="sub">Проверка связи ветеранских и общественных организаций · пилотный этап 11–17 сентября 2026</div>
 </div>
-
-<section>
-  <div class="wrap">
-    <span class="kicker">Живая карта организма</span>
-    <h2>Не сайт-визитка. Управляемый организм с геометрией</h2>
-    <p class="lead">Интерактивный <b>Конфигуратор</b>: каждая часть завода — живая ячейка. Директор двигает органы, соединяет связи, меняет статусы — и видит организм целиком. Классификация — пирамидой: <b>кто решает → кто исполняет → на чём работает → что выпущено</b>.</p>
-    <div class="cfg-mock">
-      <div class="cfg-head"><span class="dot"></span><span class="dot" style="background:#f0a832"></span><span class="dot" style="background:#2FAD9B"></span><span class="addr">Конфигуратор-ЕЦУ.html · офлайн · вкладка 🧬 Организм</span></div>
-      <div class="cfg-tabs"><span class="cfg-tab on">🧬 Организм</span><span class="cfg-tab">🌐 Внешняя среда</span><span class="cfg-tab">👑 Директор</span><span class="cfg-tab">🤖 AutoClaw</span><span class="cfg-tab">🎯 Сцена целей</span></div>
-      <div class="cfg-body">
-        <div class="cfg-side"><span>➕</span><span>🔗</span><span>🧱</span><span>↩</span><span>↪</span><span>💾</span><span>📖</span></div>
-        <div class="cfg-zoom"><span>−</span><span>100%</span><span>＋</span></div>
-        <div class="cfg-cell gold" style="left:44%;top:24px">👑 Директор</div>
-        <div class="cfg-cell gold" style="left:44%;top:84px">🧠 Штаб-ЕЦУ</div>
-        <div class="cfg-cell" style="left:14%;top:150px">📋 Секретариат</div>
-        <div class="cfg-cell" style="left:30%;top:176px">🏛 Архитектор</div>
-        <div class="cfg-cell" style="left:47%;top:186px">📦 AutoCoder</div>
-        <div class="cfg-cell cfg-swim" style="left:60%;top:170px">🎨 Дизайнер</div>
-        <div class="cfg-cell cfg-pulse" style="left:74%;top:160px">🛡 Аппарат Совета</div>
-        <div class="cfg-cell" style="left:20%;top:250px">🖥 HOME-PC</div>
-        <div class="cfg-cell" style="left:44%;top:262px">💻 Ноутбук .75</div>
-        <div class="cfg-cell" style="left:66%;top:252px">🖥 Узел №2</div>
-        <div class="cfg-ln" style="left:calc(50% + 40px);top:60px;width:2px;height:24px"></div>
-        <div class="cfg-ln" style="left:46%;top:120px;width:180px;transform:rotate(14deg)"></div>
-        <div class="cfg-toast">✓ Связь переподключена · автосохранено</div>
-      </div>
-    </div>
-    <p class="note" style="text-align:left">Живая запись экрана не нужна: вкладка «Организм» выглядит и ведёт себя именно так — ячейки двигаются мышью, связи переподключаются, масштаб от 30 до 250%, отмена — Ctrl+Z.</p>
-    <div class="pyr">
-      <div class="plank p-dir"><div class="tt">👑 Дирекция</div><div class="ss">источник всех решений, одна точка входа</div></div>
-      <div class="arrow">▼</div>
-      <div class="plank p-hq"><div class="tt">🧠 Штаб-ЕЦУ «Кло»</div><div class="ss">не исполняет — добивается исполнения: распределяет, контролирует, сводит отчёты</div></div>
-      <div class="arrow">▼</div>
-      <div class="plank p-dep"><div class="tt">⚙️ Отделы-органы (дуга)</div>
-        <div class="orgs"><div class="org">📋 Секретариат</div><div class="org">🏛 Архитектор</div><div class="org">📦 AutoCoder</div><div class="org">🎨 Дизайнер</div><div class="org">🛡 Аппарат Совета</div><div class="org">💰 Финансы</div></div>
-      </div>
-      <div class="arrow">▼</div>
-      <div class="plank p-base"><div class="tt">🖥 Фундамент: машины</div>
-        <div class="machines"><div class="org">HOME-PC — штаб-сервер, самовосстановление</div><div class="org">Ноутбук — бот конференции</div><div class="org">Узел №2 — зеркало бэкапов</div></div>
-      </div>
-    </div>
-    <p class="note">Правое крыло карты — «Продукты-итоги» (21 результат с лучами к Штабу), левое — «Опоры» (устав, доктрины) и «Цель». Отмена любых действий — Ctrl+Z по 60 шагам истории.</p>
+<div class="wrap">
+  <div class="card">
+    <p>«ЯВКА-75» — инициатива проверки связи и информационного взаимодействия между ветеранскими и общественными организациями. Мы не агитируем и не призываем: мы восстанавливаем рабочие связи и налаживаем обмен проверенной информацией.</p>
   </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <span class="kicker">Сцена целей</span>
-    <h2>Стратегическая карта по Каплану–Нортону — изнутри завода</h2>
-    <p class="lead">Дерево целей построено по ССП: четыре полосы-перспективы, 20 подцелей, у каждой — исполнитель по RACI. Связи идут снизу вверх: <b>Потенциал → Ресурсы → Процессы → Люди</b>. Это не презентация для галочки — карта управляет ежедневной работой агентов.</p>
-    <div class="scene">
-      <div class="strip s1"><div class="nm">🎯 Генеральная цель</div><div class="chips"><div class="chip">пилот «ЯВКА-75» 11–17.09</div><div class="chip">публичная площадка организма</div></div></div>
-      <div class="strip s1"><div class="nm">🌐 Люди (клиенты)</div><div class="chips"><div class="chip">тест на контрольной группе</div><div class="chip">доклад «готов/не готов»</div><div class="chip">пилот стартовал</div><div class="chip">внешний интерфейс</div></div></div>
-      <div class="strip s2"><div class="nm">🌐 Процессы</div><div class="chips"><div class="chip">конвейер штаба</div><div class="chip">документооборот</div><div class="chip">рассылка с замером</div><div class="chip">конференции</div></div></div>
-      <div class="strip s3"><div class="nm">🌐 Ресурсы</div><div class="chips"><div class="chip">кредиты и подписки</div><div class="chip">сервис ИИ</div><div class="chip">сервер и зеркала</div><div class="chip">каналы связи</div></div></div>
-      <div class="strip s4"><div class="nm">🌐 Потенциал</div><div class="chips"><div class="chip">обучение агентов</div><div class="chip">библиотека доктрин (6 работ)</div><div class="chip">публичность</div></div></div>
-    </div>
+  <h2>Что происходит в пилотную неделю</h2>
+  <ul>
+    <li>Короткие ежедневные касания с участниками — проверяем, работает ли канал.</li>
+    <li>Сверка контактов и адресов: кто на связи, кто сменил канал.</li>
+    <li>Обмен материалами: только проверенные факты, с указанием источника.</li>
+    <li>Сбор откликов: что дошло, что понятно, что нужно поправить.</li>
+  </ul>
+
+  <h2>Принципы работы</h2>
+  <ul>
+    <li>Информирование, а не агитация.</li>
+    <li>Персональные данные участников публично не раскрываются.</li>
+    <li>Проверка факта — до публикации, а не после.</li>
+  </ul>
+
+  <h2>Как участвовать</h2>
+  <ul>
+    <li>Ответить на письмо координатора — даже короткое «получил» уже результат.</li>
+    <li>Участникам контрольной группы — войти в личный кабинет по своему коду.</li>
+    <li>Прислать уточнения по связям и контактам вашей организации.</li>
+  </ul>
+
+  <h2>Связь</h2>
+  <div class="card">
+    <p>Почта проекта: <a href="mailto:fondsoratnik@bk.ru">fondsoratnik@bk.ru</a></p>
   </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <span class="kicker">Достижения — 7 дней</span>
-    <h2>Хроника: от пустой папки до организма</h2>
-    <div class="tl">
-      <div class="ev"><div class="d">30.08</div><div class="w">Разбор 280 файлов архива фонда → <span>единая матрица данных</span></div></div>
-      <div class="ev"><div class="d">31.08</div><div class="w">Единый центр управления: устав, схема, канал поручений · <span>Telegram-группа Совета</span></div></div>
-      <div class="ev"><div class="d">01.09</div><div class="w">Пакет из 10 документов (устав, политика ПДн, заявления) · <span>доска задач с авто-реестром</span></div></div>
-      <div class="ev"><div class="d">02.09</div><div class="w">Карта организма: ветки-чаты + 6 органов · <span>мониторинг кредитов (cron 11:30)</span></div></div>
-      <div class="ev"><div class="d">03.09</div><div class="w">Бот конференции: текст+голос, «первый живой эфир» · <span>голос подтверждён: «бесподобно»</span></div></div>
-      <div class="ev"><div class="d">04.09</div><div class="w">Ролик v4 Full HD с озвучкой SpeechKit · <span>узел №2: доступ, паспорт, зеркало 218 файлов</span></div></div>
-      <div class="ev"><div class="d">05.09</div><div class="w">Мастер-база 10 902×243 · <span>142 анкеты распознаны · Я2: механика рассылки сдана 4/4</span></div></div>
-      <div class="ev"><div class="d">06.09</div><div class="w">Конфигуратор организма: 5 вкладок, стратегическая карта, блоки, Undo/Redo, панорама · <span>эта витрина</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <span class="kicker">Конвейер продуктов</span>
-    <h2>Что завод выпускает на людей</h2>
-    <p class="lead">Каждая позиция — готовый продукт, сделанный агентами завода. Грамота — лишь один из станков на конвейере.</p>
-    <div class="grid">
-      <div class="card"><h3>📜 Документы под ключ</h3><p>Уставы, протоколы, политики ПДн, заявления, письма — 10 docx за день, с печатным следом и реестрами.</p><div class="tag">Секретариат</div></div>
-      <div class="card"><h3>🗄 Синтез баз данных</h3><p>280 разрозненных файлов → мастер-база 10 902×243 с дедупликацией. Excel + JSON + конвейер обновления.</p><div class="tag">AutoCoder</div></div>
-      <div class="card"><h3>👁 OCR бумажных архивов</h3><p>142 скана анкет → структурированный текст через Yandex SpeechKit OCR. Цена вопроса — копейки.</p><div class="tag">Синтез</div></div>
-      <div class="card"><h3>🎬 Видео с ИИ-голосом</h3><p>Ролик v4: Full HD, монтажные сцены, озвучка «dasha» (SpeechKit TTS). Сценарий, раскадровка, сборка — автоматом.</p><div class="tag">Дизайнер</div></div>
-      <div class="card"><h3>🏅 Фабрика грамот</h3><p>Фирменный бланк, live-генерация: грамота печатается строка за строкой. Версия v5 утверждена.</p><div class="tag">Конвейер</div></div>
-      <div class="card"><h3>🖥 Аудит ПК за 20 минут</h3><p>Полная инвентаризация софта и автозапуска, чистка, рекомендации — отчёт человеку простым языком.</p><div class="tag">Штаб</div></div>
-      <div class="card"><h3>📞 Конференция с ботом</h3><p>Jitsi-мост: бот заходит в комнату, слышит голос, пишет в чат, ведёт протокол. Первый эфир прошёл.</p><div class="tag">Аппарат Совета</div></div>
-      <div class="card"><h3>💰 Мониторинг финансов</h3><p>Ежедневный автомат 11:30 ищет акции кредитов и тарифов, докладывает — ничего не покупает сам.</p><div class="tag">Финансы</div></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <span class="kicker">Live demo · Фабрика грамот</span>
-    <h2>Один из станков — в работе</h2>
-    <div class="demo">
-      <div class="demo-box">
-        <h3>Как работает станок</h3>
-        <p>Директор диктует: кому, за что, от кого. Кло собирает документ по правилам оформления (композиция бланка, шапка, подписи), показывает предпросмотр и печатает на принтер Epson — с записью в реестр. От приказа до бумаги — минуты, а не дни.</p>
-        <p style="margin-top:10px">Тот же конвейер выпускает обращения, воззвания, благодарности и пакеты документов — по одним и тем же правилам качества.</p>
-      </div>
-      <div class="demo-box">
-        <h3>Образец с конвейера</h3>
-        <img src="gramota_v5.png" alt="Грамота Завода АвтоКло — версия v5" style="max-width:100%;border-radius:8px;border:1px solid var(--line);box-shadow:0 8px 30px rgba(0,0,0,.35)">
-        <p style="margin-top:10px;font-size:12px">Грамота v5 — одна из пяти версий, доведённых агентами по замечаниям человека: правила композиции бланка заведены в отдельный стандарт завода.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <span class="kicker">Штат завода</span>
-    <h2>Семь агентов. Ноль выгорания. Круглосуточно</h2>
-    <div class="agents">
-      <div class="ag"><div class="e">🧠</div><div class="n">Кло</div><div class="r">Штаб: распределение, контроль, сводки</div></div>
-      <div class="ag"><div class="e">📦</div><div class="n">AutoCoder</div><div class="r">код, конвейеры, механика рассылок</div></div>
-      <div class="ag"><div class="e">🎨</div><div class="n">Дизайнер</div><div class="r">витрины, ролики, фирменный стиль</div></div>
-      <div class="ag"><div class="e">📋</div><div class="n">Секретариат</div><div class="r">документы, реестры, протоколы</div></div>
-      <div class="ag"><div class="e">🏛</div><div class="n">Архитектор</div><div class="r">системы, отчёты, инфраструктура</div></div>
-      <div class="ag"><div class="e">🛡</div><div class="n">Аппарат Совета</div><div class="r">конференции, мост текст+голос</div></div>
-      <div class="ag"><div class="e">💰</div><div class="n">Финансы</div><div class="r">бюджет, кредиты, тарифы</div></div>
-    </div>
-    <div class="quote">«Ничего не удаляем, ничего не ломаем — <b>сто раз отмерь, один раз отрежь</b>». Правило завода, введённое после первого же урока. Каждая правка проходит проверку парсером и бэкап — поэтому организм не падает.</div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="wrap">
-    <span class="kicker">Практическая ценность</span>
-    <h2>Кому завод нужен завтра</h2>
-    <p class="lead">Всё, что вы видели, воспроизводится для любой организации за считанные дни: архив → база → документы → коммуникации → живое управление. Ни одного программиста в штате не потребовалось.</p>
-    <div class="row">
-      <div class="pill">🏛 Общественным фондам и клубам</div>
-      <div class="pill">🗳 Избирательным штабам</div>
-      <div class="pill">🏢 Малому бизнесу</div>
-      <div class="pill">👤 Личному офису руководителя</div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="big">ПОСТРОЕНО С AUTOCLAW</div>
-    <p>Фонд «Соратник» · Единый центр управления · сентябрь 2026<br>Оператор: Александр · Хранитель завода: Кло 🦊</p>
-  </div>
-</footer>
-
+  <div class="f">Проект «ЯВКА-75» · Фонд «Соратник» · 2026</div>
+</div>
 </body>
 </html>
