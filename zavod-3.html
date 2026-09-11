@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Завод АвтоКло — цифровой организм, который построил себя сам</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1119;color:#f2f6fb;font:17px/1.65 Georgia,"Times New Roman",serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 70px}
+.hero{position:relative;min-height:80vh;display:flex;align-items:flex-end;background:#0b1119}
+.hero img{width:100%;height:80vh;object-fit:cover;display:block;filter:saturate(1.12)}
+.hero .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,18,.10) 0%,rgba(6,10,18,.5) 52%,rgba(6,10,18,.96) 100%)}
+.hero .tx{position:absolute;left:0;right:0;bottom:0;padding:26px 24px 36px;max-width:980px;margin:0 auto;text-align:center}
+.kicker{display:inline-block;background:#ffb347;color:#1b1206;font-weight:700;border-radius:22px;padding:6px 16px;font-size:14px;letter-spacing:.5px}
+h1{text-align:center;font-size:clamp(28px,5vw,54px);line-height:1.1;margin:14px 0 10px;color:#fff;text-shadow:0 3px 20px rgba(0,0,0,.65)}
+h1 em{font-style:normal;color:#ffd27a}
+h2{text-align:center;font-size:clamp(22px,3vw,32px);margin:48px 0 8px;color:#ffd27a}
+.lead{text-align:center;font-size:clamp(16px,2.1vw,20px);color:#e8f0fb;max-width:800px}
+.bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:#24384f;border:1px solid #24384f;border-radius:16px;overflow:hidden;margin:-38px auto 0;position:relative;z-index:5;max-width:960px}
+.bar div{background:#101a26;padding:16px 14px;text-align:center}
+.bar b{display:block;font-size:clamp(22px,3vw,30px);color:#ffd27a;line-height:1.1}
+.bar span{font-size:12.5px;color:#9db6d1}
+.punch{text-align:center;text-align:center;font-size:clamp(20px,3.1vw,32px);line-height:1.32;margin:44px 0;color:#fff;border-left:5px solid #ffb347;padding-left:18px}
+.punch b{color:#ffd27a}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:18px}
+.card{background:#131c28;border:1px solid #24384f;border-radius:16px;padding:18px 20px}
+.card .ic{font-size:26px}
+.card b{color:#ffd27a;display:block;margin:8px 0 4px;font-size:18px}
+.card p{margin:0;color:#c9d8ea;font-size:16px}
+.tag{font-size:12px;color:#7fd4a8;letter-spacing:1px;text-transform:uppercase}
+.pic{border-radius:18px;overflow:hidden;border:1px solid #24384f;margin:28px 0}
+.pic img{width:100%;display:block}
+.cap{padding:12px 18px;background:#101923;color:#9db6d1;font-size:14px;text-align:center}
+.ba{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin-top:20px}
+.ba>div{border-radius:16px;padding:18px}
+.ba .old{background:#1b1414;border:1px solid #4a2b2b}
+.ba .new{background:#12241a;border:1px solid #2f5c3f}
+.ba h3{margin:0 0 8px;font-size:18px}
+.ba .old h3{color:#e08b8b}.ba .new h3{color:#7fd4a8}
+.ba ul{margin:0;padding-left:20px}.ba li{margin:5px 0}
+ul{padding-left:20px}
+.cta{margin:44px 0 0;background:linear-gradient(120deg,#1b2a44,#0f1a2a);border:1px solid #2b3a55;border-radius:18px;padding:26px;text-align:center}
+.cta a{display:inline-block;background:#ffb347;color:#1b1206;text-decoration:none;font-weight:700;border-radius:14px;padding:14px 28px;font-size:18px;margin-top:12px}
+.f{margin-top:38px;text-align:center;color:#6c88a8;font-size:13px}
+@media(max-width:640px){.ba{grid-template-columns:1fr}}
+</style></head><body>
+
+<div class="hero">
+  <img src="https://fondsoratnik.github.io/-/app/zavod/hero.jpg" alt="Цифровой завод: золотой свет и живые линии">
+  <div class="ov"></div>
+  <div class="tx">
+    <div class="kicker">ЗАВОД АВТОКЛО · ОБНОВЛЕНО 11 СЕНТЯБРЯ 2026</div>
+    <h1>Обычная общественная организация.<br>Ни бюджета. Ни IT-отдела.<br><em>А теперь у неё есть завод.</em></h1>
+    <p class="lead">Он собирает ваших людей, пишет каждому по имени, делает сайты и документы — и работает круглосуточно. Завод смыслов, а не зданий.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="bar">
+    <div><b>12 279</b><span>строк в мастер-базе</span></div>
+    <div><b>492</b><span>организации в реестре</span></div>
+    <div><b>526</b><span>связей «человек — организация»</span></div>
+    <div><b>26 710</b><span>ссылок на каналы и СМИ</span></div>
+    <div><b>547</b><span>чатов разобрано</span></div>
+    <div><b>64</b><span>страницы сканов распознано</span></div>
+    <div><b>326</b><span>аббревиатур и 2 156 названий</span></div>
+    <div><b>7</b><span>органов-агентов в штате</span></div>
+  </div>
+
+  <h2>Что это</h2>
+  <p class="lead"><b>Штаб-фабрика ИИ-агентов.</b> За неделю она оцифровала архив фонда, свела людей и организации в один реестр, поставила на конвейер выпуск документов, страниц и рассылок — и управляет собой через живую карту организма. Ни программиста, ни подрядчика, ни лишнего рубля.</p>
+
+  <p class="punch">Раньше: <b>недели</b>, подрядчики и деньги.<br>Теперь: <b>один день</b> и одна просьба, сказанная по-русски.</p>
+
+  <div class="pic"><img src="https://fondsoratnik.github.io/-/app/zavod/people.jpg" alt="Ветеран и молодой человек за работой"><div class="cap">Связь поколений: то, что один берёг годами, второй заносит в машину за час.</div></div>
+
+  <h2>Что он умеет — простыми словами</h2>
+  <div class="grid">
+    <div class="card"><div class="ic">📣</div><b>Собрать всех, кто нужен</b><p>Найти ваших людей в архивах, списках и старых бумагах — и свести в один реестр без путаницы и дублей.</p></div>
+    <div class="card"><div class="ic">✉️</div><b>Написать каждому по имени</b><p>Не «рассылка вообще», а письмо человеку: с обращением, с уважением, с ответом на его слова.</p></div>
+    <div class="card"><div class="ic">🌐</div><b>Сделать сайт и витрину</b><p>Страница, где всё видно и понятно — за вечер, а не «к декабрю».</p></div>
+    <div class="card"><div class="ic">📄</div><b>Выпустить документы</b><p>Письма, обращения, протоколы, листовки — в едином стиле и без ошибок.</p></div>
+    <div class="card"><div class="ic">🤝</div><b>Помнить каждого</b><p>Кто получил, кто ответил, кто молчит — у каждого своя карточка и своя история.</p></div>
+    <div class="card"><div class="ic">🛡️</div><b>Не потерять личное</b><p>Данные людей — только в защищённом контуре. Наружу — то, что вы разрешили.</p></div>
+  </div>
+
+  <h2>Было — стало</h2>
+  <div class="ba">
+    <div class="old"><h3>Было</h3><ul>
+      <li>Списки в тетрадях и на разных флешках</li>
+      <li>Один человек вручную пишет сотни писем</li>
+      <li>Сайт «потом, когда найдутся деньги»</li>
+      <li>Никто не знает, дошло ли письмо</li>
+    </ul></div>
+    <div class="new"><h3>Стало</h3><ul>
+      <li>Один реестр: человек — организация — контакт</li>
+      <li>Письма с личным обращением, отправка за минуты</li>
+      <li>Живая витрина и рабочие страницы за день</li>
+      <li>Видно, кто получил, кто ответил, кто ждёт звонка</li>
+    </ul></div>
+  </div>
+
+  <div class="pic"><img src="https://fondsoratnik.github.io/-/app/zavod/square.jpg" alt="Рассвет, люди вместе"><div class="cap">Утро, когда связь восстановлена. Именно за это мы работаем.</div></div>
+
+  <h2>Органы организма</h2>
+  <div class="grid">
+    <div class="card"><div class="tag">Штаб</div><p><b>Управление и контроль.</b> Ставит задачи, сводит результаты, следит за сроками.</p></div>
+    <div class="card"><div class="tag">Архитектор</div><p><b>Устройство и смысл.</b> Схемы, регламенты, политика данных, проектные документы.</p></div>
+    <div class="card"><div class="tag">Секретариат</div><p><b>Документы и реестры.</b> Письма, протоколы, картотека людей и организаций.</p></div>
+    <div class="card"><div class="tag">AutoCoder</div><p><b>Код и сервисы.</b> Сервер, кабинеты, движки рассылки. Всё проверяется тестами до сдачи.</p></div>
+    <div class="card"><div class="tag">Дизайнер</div><p><b>Визуал.</b> Витрины, листовки, страницы, оформление материалов.</p></div>
+    <div class="card"><div class="tag">Финансы</div><p><b>Ресурсы.</b> Подписки и кредиты под присмотром, экономия, реестр предложений.</p></div>
+    <div class="card"><div class="tag">Аппарат Совета</div><p><b>Решения.</b> Повестки, проекты решений, сессии, протоколы.</p></div>
+  </div>
+
+  <h2>Что выпущено за неделю</h2>
+  <div class="grid">
+    <div class="card"><ul>
+      <li>Единый реестр организаций и их представителей — с поиском и справкой терминов</li>
+      <li>Реестр каналов, СМИ и блогеров — с ёмкостью аудитории</li>
+      <li>Мастер-база контактов и картотека людей</li>
+      <li>Библиотека документов и свод Законов проекта</li>
+    </ul></div>
+    <div class="card"><ul>
+      <li>Сервер-штаб: документы, кабинеты Совета и участника, витрины, законы</li>
+      <li>Движок рассылки с отслеживанием откликов и авто-заменой</li>
+      <li>Сторож почты — проверка каждые 2 минуты</li>
+      <li>Пилотная кампания «ЯВКА-75»: письма, витрина, контрольная группа</li>
+    </ul></div>
+  </div>
+
+  <h2>Как это работает</h2>
+  <svg viewBox="0 0 800 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;border-radius:14px;border:1px solid #24384f;background:#0d1522">
+    <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#12305c"/><stop offset="1" stop-color="#0d1b33"/></linearGradient></defs>
+    <g font-family="Georgia, serif" font-size="14" fill="#dbe7f7" text-anchor="middle">
+      <rect x="20" y="70" width="130" height="50" rx="10" fill="url(#g1)" stroke="#d8b64a"/><text x="85" y="100">Замысел</text>
+      <rect x="180" y="70" width="150" height="50" rx="10" fill="url(#g1)" stroke="#d8b64a"/><text x="255" y="100">Декомпозиция</text>
+      <rect x="360" y="70" width="150" height="50" rx="10" fill="url(#g1)" stroke="#d8b64a"/><text x="435" y="100">Исполнение</text>
+      <rect x="540" y="70" width="120" height="50" rx="10" fill="url(#g1)" stroke="#d8b64a"/><text x="600" y="100">Контроль</text>
+      <rect x="690" y="70" width="90" height="50" rx="10" fill="url(#g1)" stroke="#d8b64a"/><text x="735" y="100">Сдача</text>
+      <g stroke="#8fb7ff" stroke-width="2"><line x1="150" y1="95" x2="176" y2="95"/><line x1="330" y1="95" x2="356" y2="95"/><line x1="510" y1="95" x2="536" y2="95"/><line x1="660" y1="95" x2="686" y2="95"/></g>
+      <path d="M735 130 C700 170, 200 170, 85 130" fill="none" stroke="#7fd4a8" stroke-width="2" stroke-dasharray="5 5"/>
+      <text x="410" y="176" fill="#7fd4a8" font-size="13">обратная связь и проверка фактами — каждый цикл</text>
+    </g>
+  </svg>
+
+  <h2>Для кого</h2>
+  <div class="grid">
+    <div class="card"><b>Фонды и общественные организации</b><p>Нет денег на IT-отдел — завод заменяет его целиком.</p></div>
+    <div class="card"><b>Ветеранские организации</b><p>Найти своих, восстановить связь, донести слово до каждого.</p></div>
+    <div class="card"><b>Избирательные кампании</b><p>Реестры, материалы, распространение, обратная связь — в одном месте.</p></div>
+    <div class="card"><b>Клубы и малый бизнес</b><p>Учёт людей, документы, рассылки, отчётность — без наёма штата.</p></div>
+  </div>
+
+  <h2>Принципы</h2>
+  <ul>
+    <li><b>Проверка фактом.</b> Любой результат подтверждается тестом, ссылкой или выгрузкой.</li>
+    <li><b>Личное — под замком.</b> Персональные данные не покидают защищённый контур.</li>
+    <li><b>Никаких «потом».</b> Распоряжение исполняется в тот же цикл.</li>
+    <li><b>Ошибка признаётся сразу</b> и исправляется, а не маскируется.</li>
+  </ul>
+
+  <div class="cta">
+    <div style="font-size:23px;color:#ffd27a">Хотите попробовать?</div>
+    <p style="color:#c9d8ea;margin:8px 0 0">Напишите одну строку: кто вы и что нужно собрать. Остальное — наша работа.</p>
+    <a href="mailto:fondsoratnik@bk.ru">Написать: fondsoratnik@bk.ru</a>
+  </div>
+
+  <div class="f">Завод АвтоКло · цифровой организм фонда «Соратник» · обновлено 11.09.2026<br>Витрина проекта «ЯВКА-75»: fondsoratnik.github.io/-/</div>
+</div></body></html>
