@@ -63,7 +63,7 @@ button,input[type=submit]{cursor:pointer}
   <div class="grid">
     <div class="card">
       <p><b>Организациям и соратникам</b></p>
-      <form action="mailto:fondsoratnik@bk.ru" method="post" enctype="text/plain">
+      <form>
         <label>Ваше имя и отчество</label><input name="Имя" placeholder="Иван Петрович">
         <label>Организация и город</label><input name="Организация" placeholder="Совет ветеранов, город">
         <label>Как с вами связаться</label><input name="Контакт" placeholder="телефон, почта или мессенджер">
@@ -74,7 +74,7 @@ button,input[type=submit]{cursor:pointer}
     </div>
     <div class="card">
       <p><b>Кадрам и специалистам</b> (юрист, бухгалтер, IT, редактор, водитель, связист)</p>
-      <form action="mailto:fondsoratnik@bk.ru" method="post" enctype="text/plain">
+      <form>
         <label>Имя и отчество</label><input name="Имя" placeholder="Иван Петрович">
         <label>Направление</label>
         <select name="Направление">
@@ -131,5 +131,5 @@ button,input[type=submit]{cursor:pointer}
   <div class="f">Площадка сети «ЯВКА-75» · Общероссийское офицерское собрание · Фонд «Соратник» · 2026<br>
   Кабинет Совета — по отдельному адресу, только для членов Совета</div>
 </div>
-</body>
+<script>function sendJoin(b){var f=b.closest("div.card");var g=function(n){var e=f.querySelector("[name="+n+"]");return e?e.value:""};var t="Заявка в сеть «ЯВКА-75»\n\nИмя: "+g("Имя")+"\nОрганизация: "+g("Организация")+"\nНаправление: "+g("Направление")+"\nКонтакт: "+g("Контакт")+"\nЗадача/опыт: "+g("Задача")+g("Опыт")+"\n";var ta=f.querySelector(".res"); if(ta){ta.value=t;ta.style.display="block";}window.location.href="mailto:fondsoratnik@bk.ru?subject="+encodeURIComponent("Заявка в сеть ЯВКА-75")+"&body="+encodeURIComponent(t);}</script><div class="card" style="margin-top:10px"><p style="font-size:13.5px;color:#8ea9c9">Если кнопка не сработала — скопируйте текст ниже и отправьте его письмом на <a href="mailto:fondsoratnik@bk.ru">fondsoratnik@bk.ru</a>:</p><textarea class="res" readonly rows="7" style="display:none;width:100%"></textarea></div></body>
 </html>
