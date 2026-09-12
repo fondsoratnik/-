@@ -19,7 +19,7 @@ nav a:hover{background:#16233a;color:#ffd27a}
 h2{font-size:clamp(21px,3vw,28px);color:#ffd27a;text-align:center;margin:44px 0 10px}
 .card{background:#121b26;border:1px solid #24384f;border-radius:16px;padding:18px 20px;margin:14px 0}
 .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.btn{display:block;text-align:center;text-decoration:none;font-weight:bold;font-size:16.5px;padding:15px 20px;border-radius:12px;margin:10px 0;
+.btn{cursor:pointer;transition:transform .12s ease, filter .12s ease;display:block;text-align:center;text-decoration:none;font-weight:bold;font-size:16.5px;padding:15px 20px;border-radius:12px;margin:10px 0;
 background-image:linear-gradient(180deg,#f5bd5c,#dd9a2c);color:#10233f;border:1px solid #c98a24;box-shadow:0 4px 10px rgba(0,0,0,.25)}
 form{display:grid;gap:10px;margin-top:10px}
 input,textarea,select{padding:12px 14px;border-radius:10px;border:1px solid #2b3a55;background:#0d1522;color:#f2f6fb;font:16px Georgia,serif}
@@ -28,6 +28,10 @@ label{font-size:14px;color:#9db6d1}
 .news b{color:#7fd4a8}
 .f{margin-top:40px;text-align:center;color:#6c88a8;font-size:13px}
 ul{padding-left:20px}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+input:focus,textarea:focus,select:focus{outline:2px solid #d8b64a;outline-offset:1px}
+button,input[type=submit]{cursor:pointer}
 </style>
 </head>
 <body>
@@ -64,7 +68,7 @@ ul{padding-left:20px}
         <label>Организация и город</label><input name="Организация" placeholder="Совет ветеранов, город">
         <label>Как с вами связаться</label><input name="Контакт" placeholder="телефон, почта или мессенджер">
         <label>Что нужно от нас</label><textarea name="Задача" rows="3" placeholder="например: восстановить связь с организациями района"></textarea>
-        <button class="btn" type="submit">Отправить заявку</button>
+        <button class="btn" type="submit" style="cursor:pointer">Отправить заявку</button>
       </form>
       <p style="font-size:13px;color:#8ea9c9">Кнопка откроет вашу почтовую программу с готовым письмом. Если она не открылась — напишите нам прямо: <a href="mailto:fondsoratnik@bk.ru">fondsoratnik@bk.ru</a></p>
     </div>
@@ -80,7 +84,7 @@ ul{padding-left:20px}
         </select>
         <label>Город и контакт</label><input name="Контакт" placeholder="город, телефон или почта">
         <label>Опыт коротко</label><textarea name="Опыт" rows="3" placeholder="чем занимались, что умеете"></textarea>
-        <button class="btn" type="submit">Отправить заявку</button>
+        <button class="btn" type="submit" style="cursor:pointer">Отправить заявку</button>
       </form>
     </div>
   </div>
