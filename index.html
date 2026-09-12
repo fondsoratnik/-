@@ -3,59 +3,129 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Проект «ЯВКА-75» — витрина</title>
+<title>Площадка сети «ЯВКА-75» — вход для всех участников</title>
 <style>
-body{margin:0;background:#0b0f14;color:#dbe7f7;font:16px/1.7 Georgia,"Times New Roman",serif}
-.hero{background:linear-gradient(135deg,#0d1b33 0%,#12305c 55%,#0b0f14 100%);padding:56px 22px 38px;text-align:center;border-bottom:3px solid #d8b64a}
-.hero h1{margin:0;font-size:33px;color:#ffd27a;letter-spacing:2px}
-.hero .sub{font-size:15px;color:#8fb7ff;margin-top:10px}
-.wrap{max-width:860px;margin:0 auto;padding:30px 20px 70px}
-h2{color:#ffd27a;font-size:21px;border-bottom:1px dashed #2b3340;padding-bottom:6px;margin:32px 0 12px}
-.card{background:#12161f;border:1px solid #2b3340;border-left:4px solid #d8b64a;border-radius:10px;padding:14px 18px;margin:10px 0}
-ul{padding-left:22px}
-li{margin:6px 0}
-.f{margin-top:38px;text-align:center;font-size:13px;color:#5f7a9d}
+*{box-sizing:border-box}
+body{margin:0;background:#0a0f16;color:#f2f6fb;font:17px/1.7 Georgia,"Times New Roman",serif}
 a{color:#ffd27a}
+.top{background:linear-gradient(120deg,#0d1b33,#12305c);border-bottom:3px solid #d8b64a;padding:26px 20px;text-align:center}
+.top .k{color:#8fb7ff;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.top h1{margin:10px 0 6px;font-size:clamp(26px,4.6vw,42px);color:#ffd27a;text-align:center;letter-spacing:1px}
+.top p{margin:0;color:#c9d8ea;font-size:16px}
+nav{background:#0e1725;border-bottom:1px solid #22334a;padding:12px;text-align:center;position:sticky;top:0;z-index:9}
+nav a{display:inline-block;color:#cfe0f5;text-decoration:none;font-size:14.5px;padding:7px 14px;margin:3px;border:1px solid #24384f;border-radius:20px}
+nav a:hover{background:#16233a;color:#ffd27a}
+.wrap{max-width:900px;margin:0 auto;padding:26px 18px 70px}
+h2{font-size:clamp(21px,3vw,28px);color:#ffd27a;text-align:center;margin:44px 0 10px}
+.card{background:#121b26;border:1px solid #24384f;border-radius:16px;padding:18px 20px;margin:14px 0}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.btn{display:block;text-align:center;text-decoration:none;font-weight:bold;font-size:16.5px;padding:15px 20px;border-radius:12px;margin:10px 0;
+background-image:linear-gradient(180deg,#f5bd5c,#dd9a2c);color:#10233f;border:1px solid #c98a24;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+form{display:grid;gap:10px;margin-top:10px}
+input,textarea,select{padding:12px 14px;border-radius:10px;border:1px solid #2b3a55;background:#0d1522;color:#f2f6fb;font:16px Georgia,serif}
+label{font-size:14px;color:#9db6d1}
+.news{border-left:4px solid #7fd4a8;background:#0f1a26;border-radius:10px;padding:12px 16px;margin:10px 0}
+.news b{color:#7fd4a8}
+.f{margin-top:40px;text-align:center;color:#6c88a8;font-size:13px}
+ul{padding-left:20px}
 </style>
 </head>
 <body>
-<div class="hero">
-  <h1>ПРОЕКТ «ЯВКА-75»</h1>
-  <div class="sub">Проверка связи ветеранских и общественных организаций · пилотный этап 11–17 сентября 2026</div>
+<div class="top">
+  <div class="k">Общероссийское офицерское собрание · Фонд «Соратник»</div>
+  <h1>ПЛОЩАДКА СЕТИ «ЯВКА-75»</h1>
+  <p>Один вход для всех участников: организации, ветераны, соратники, добровольцы</p>
 </div>
+
+<nav>
+  <a href="#who">Кто мы</a>
+  <a href="#join">Как вступить</a>
+  <a href="#materials">Материалы</a>
+  <a href="#cabinet">Кабинет участника</a>
+  <a href="#news">Новости</a>
+  <a href="#contacts">Контакты</a>
+</nav>
+
 <div class="wrap">
+
+  <h2 id="who">Кто мы и зачем</h2>
   <div class="card">
-    <p>«ЯВКА-75» — инициатива проверки связи и информационного взаимодействия между ветеранскими и общественными организациями. Мы не агитируем и не призываем: мы восстанавливаем рабочие связи и налаживаем обмен проверенной информацией.</p>
+    <p>«ЯВКА-75» — сеть ветеранских и общественных организаций, которые <b>восстанавливают связь между собой</b> и вместе доносят до людей проверенную информацию.</p>
+    <p>Мы не агитируем и не обещаем чудес. Мы делаем простые вещи: находим своих, восстанавливаем контакты, помогаем организациям работать — и следим, чтобы каждое слово было подкреплено фактом.</p>
+    <p>Площадка сети — это <b>общий вход</b>: здесь видно, кто мы, чем занимаемся, как к нам присоединиться и как войти в свой кабинет.</p>
   </div>
 
-  <h2>Что происходит в пилотную неделю</h2>
-  <ul>
-    <li>Короткие ежедневные касания с участниками — проверяем, работает ли канал.</li>
-    <li>Сверка контактов и адресов: кто на связи, кто сменил канал.</li>
-    <li>Обмен материалами: только проверенные факты, с указанием источника.</li>
-    <li>Сбор откликов: что дошло, что понятно, что нужно поправить.</li>
-  </ul>
+  <h2 id="join">Как вступить</h2>
+  <div class="grid">
+    <div class="card">
+      <p><b>Организациям и соратникам</b></p>
+      <form action="mailto:fondsoratnik@bk.ru" method="post" enctype="text/plain">
+        <label>Ваше имя и отчество</label><input name="Имя" placeholder="Иван Петрович">
+        <label>Организация и город</label><input name="Организация" placeholder="Совет ветеранов, город">
+        <label>Как с вами связаться</label><input name="Контакт" placeholder="телефон, почта или мессенджер">
+        <label>Что нужно от нас</label><textarea name="Задача" rows="3" placeholder="например: восстановить связь с организациями района"></textarea>
+        <button class="btn" type="submit">Отправить заявку</button>
+      </form>
+      <p style="font-size:13px;color:#8ea9c9">Кнопка откроет вашу почтовую программу с готовым письмом. Если она не открылась — напишите нам прямо: <a href="mailto:fondsoratnik@bk.ru">fondsoratnik@bk.ru</a></p>
+    </div>
+    <div class="card">
+      <p><b>Кадрам и специалистам</b> (юрист, бухгалтер, IT, редактор, водитель, связист)</p>
+      <form action="mailto:fondsoratnik@bk.ru" method="post" enctype="text/plain">
+        <label>Имя и отчество</label><input name="Имя" placeholder="Иван Петрович">
+        <label>Направление</label>
+        <select name="Направление">
+          <option>Юрист</option><option>Бухгалтер</option><option>IT / техника</option>
+          <option>Редактор / автор</option><option>Связист</option><option>Логистика / транспорт</option>
+          <option>Медицина</option><option>Охрана</option><option>Другое</option>
+        </select>
+        <label>Город и контакт</label><input name="Контакт" placeholder="город, телефон или почта">
+        <label>Опыт коротко</label><textarea name="Опыт" rows="3" placeholder="чем занимались, что умеете"></textarea>
+        <button class="btn" type="submit">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+  <div class="card">
+    <p><b>Чего мы не делаем:</b> не собираем данные «на всякий случай», не рассылаем спам, не передаём контакты третьим лицам. Ваши данные остаются в защищённом контуре и используются только для связи с вами.</p>
+  </div>
 
-  <h2>Принципы работы</h2>
-  <ul>
-    <li>Информирование, а не агитация.</li>
-    <li>Персональные данные участников публично не раскрываются.</li>
-    <li>Проверка факта — до публикации, а не после.</li>
-  </ul>
+  <h2 id="materials">Материалы</h2>
+  <div class="grid">
+    <div class="card">
+      <p><b>Витрина проекта «ЯВКА-75»</b></p>
+      <p style="color:#9db6d1;font-size:15px">Что делаем, зачем идти, ответы на сомнения.</p>
+      <a class="btn" href="https://fondsoratnik.github.io/-/vitrina-3.html">Открыть витрину</a>
+    </div>
+    <div class="card">
+      <p><b>Завод АвтоКло</b></p>
+      <p style="color:#9db6d1;font-size:15px">Кто и как делает нашу работу: реестры, документы, рассылки.</p>
+      <a class="btn" href="https://fondsoratnik.github.io/-/zavod-3.html">Открыть страницу Завода</a>
+    </div>
+  </div>
+  <div class="card">
+    <p><b>Что доступно по запросу:</b> листовки для печати, тексты обращений, бланки, инструкции для организаций. Напишите — пришлём комплект.</p>
+  </div>
 
-  <h2>Как участвовать</h2>
-  <ul>
-    <li>Ответить на письмо координатора — даже короткое «получил» уже результат.</li>
-    <li>Участникам контрольной группы — войти в личный кабинет по своему коду.</li>
-    <li>Прислать уточнения по связям и контактам вашей организации.</li>
-  </ul>
+  <h2 id="cabinet">Кабинет участника</h2>
+  <div class="card">
+    <p>Каждый участник сети получает <b>личный код</b> от штаба. По нему в кабинете видно: ваши задачи, материалы, отметка об участии, связь с координатором.</p>
+    <p><b>Как войти:</b> откройте кабинет участника на рабочем компьютере штаба и введите свой код (пример: <b>YK-001</b>). Код выдаётся только персонально — в письме или лично.</p>
+    <p style="color:#8ea9c9;font-size:14px">Сообщество работает через защищённый контур: кабинеты открываются только у допущенных участников.</p>
+  </div>
 
-  <h2>Связь</h2>
+  <h2 id="news">Новости проекта</h2>
+  <div class="news"><b>12 сентября</b> — открыта общая площадка сети; витрина «ЯВКА-75» и страница Завода обновлены.</div>
+  <div class="news"><b>11 сентября</b> — старт пилотной недели: письма-приглашения, контрольная группа получила личные коды.</div>
+  <div class="news"><b>10 сентября</b> — первая волна приглашений: 19 писем, доставка подтверждена.</div>
+
+  <h2 id="contacts">Контакты</h2>
   <div class="card">
     <p>Почта проекта: <a href="mailto:fondsoratnik@bk.ru">fondsoratnik@bk.ru</a></p>
+    <p>Витрина: <a href="https://fondsoratnik.github.io/-/vitrina-3.html">fondsoratnik.github.io/-/vitrina-3.html</a></p>
+    <p>Ответ приходит в тот же день. Если пишете впервые — укажите город и организацию, так быстрее.</p>
   </div>
 
-  <div class="f">Проект «ЯВКА-75» · Фонд «Соратник» · 2026</div>
+  <div class="f">Площадка сети «ЯВКА-75» · Общероссийское офицерское собрание · Фонд «Соратник» · 2026<br>
+  Кабинет Совета — по отдельному адресу, только для членов Совета</div>
 </div>
 </body>
 </html>
