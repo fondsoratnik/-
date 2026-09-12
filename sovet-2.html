@@ -1,110 +1,114 @@
 <!DOCTYPE html>
-<html lang="ru"><head><meta charset="utf-8"><title>Кабинет Совета ЕЦУ</title><style>
-body{background:#0b0f14;color:#dbe7f7;font:14px/1.6 'Segoe UI',Arial;margin:0}
-.hd{position:sticky;top:0;background:#101c33;border-bottom:2px solid #a78bfa;padding:9px 16px;display:flex;gap:12px;align-items:center;z-index:50;flex-wrap:wrap}
-.hd h1{font-size:16px;margin:0}
-.hd .sub{font-size:11px;color:#8fb7ff}
-.links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
-.lk{background:#16233a;color:#dbe7f7;border:1px solid #2b3a55;border-radius:7px;padding:4px 10px;text-decoration:none;font-size:12px}
-.wrap{padding:12px 16px 80px;max-width:1100px}
-.sec{margin:18px 0 8px;font-size:13px;color:#a78bfa;font-weight:700;border-bottom:1px dashed #2b3340;padding-bottom:4px}
-.card{background:#12161f;border:1px solid #2b3340;border-left:5px solid #a78bfa;border-radius:10px;padding:12px 14px;margin-bottom:12px}
-.card .t{font-size:14px;font-weight:700;color:#c4b5fd;margin-bottom:6px}
-.card .d{font-size:12.5px;color:#c9d6e8;margin-bottom:8px}
-.mrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:5px 8px;border-radius:8px;background:#0d1526;margin-bottom:4px}
-.mrow .nm{min-width:260px;font-size:12.5px}
-.mrow .ch{font-size:11px;color:#5f7a9d;min-width:200px}
-.btn{background:#1b2740;border:1px solid #2b3a55;color:#dbe7f7;border-radius:7px;padding:3px 9px;cursor:pointer;font-size:12px;text-decoration:none;display:inline-block}
-.btn.ok{border-color:#3ecf8e;color:#8fd8b0}
-.btn.fx{border-color:#ffb454;color:#ffc95e}
-.btn.sn{border-color:#7fb0ff;color:#7fb0ff}
-.st{font-size:11px;color:#5f7a9d}
-.solved{font-size:11.5px;color:#8fd8b0}
-.note{width:100%;box-sizing:border-box;background:#0d1526;border:1px solid #2b3a55;color:#dbe7f7;border-radius:7px;padding:6px 8px;font:12px/1.5 'Segoe UI',Arial;margin:4px 0;min-height:36px}
-.ps{font-size:11px;color:#5f7a9d}
-</style></head><body>
-<div class="hd"><h1>🏛 Кабинет Совета ЕЦУ</h1><span class="sub">материалы на утверждение · статусы членов · http://127.0.0.1:8765/sovet</span>
-<div class="links"><div style="background:#0f1a2a;border:1px solid #2b3a55;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:14px;color:#c9d8ea"><b style="color:#ffd27a">Как голосовать надёжнее всего:</b> ответьте на письмо обычным письмом, тема уже готова — <b>СОВЕТ-РЕШЕНИЕ-1-УТВЕРЖДАЮ</b> или <b>СОВЕТ-РЕШЕНИЕ-1-ПРАВКИ</b>. Так голос дойдёт из любой почтовой программы. Кнопки ниже — для тех, кто работает в браузере.</div><a class="lk" href="http://127.0.0.1:8765/docs">📚 Библиотека</a><a class="lk" href="http://127.0.0.1:8765/journal">Экран контроля</a><a class="lk" href="http://127.0.0.1:8765/rp">РП</a><a class="lk" href="http://127.0.0.1:8765/laws">Законы</a></div></div>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кабинет Совета — проект «ЯВКА-75»</title>
+<style>
+body{margin:0;background:#0a0f16;color:#f2f6fb;font:17px/1.7 Georgia,"Times New Roman",serif}
+.top{background:linear-gradient(120deg,#0d1b33,#12305c);border-bottom:3px solid #d8b64a;padding:26px 20px;text-align:center}
+.top h1{margin:8px 0 4px;font-size:clamp(24px,4vw,36px);color:#ffd27a;text-align:center}
+.top p{margin:0;color:#c9d8ea}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 70px}
+h2{font-size:clamp(20px,3vw,27px);color:#ffd27a;text-align:center;margin:42px 0 12px}
+.card{background:#121b26;border:1px solid #24384f;border-radius:16px;padding:18px 20px;margin:14px 0}
+.card h3{margin:0 0 6px;color:#ffd27a;font-size:19px}
+.card .what{color:#c9d8ea;font-size:15.5px;margin:0 0 12px}
+.tema{background:#0d1522;border:1px dashed #2b3a55;border-radius:10px;padding:10px 14px;margin:0 0 12px;font-family:Consolas,monospace;font-size:14.5px;color:#7fd4a8;word-break:break-all}
+.vote{display:flex;gap:10px;flex-wrap:wrap}
+.vote a{flex:1 1 200px;text-align:center;text-decoration:none;font-weight:bold;font-size:16px;padding:13px 16px;border-radius:12px;cursor:pointer}
+.ok{background-image:linear-gradient(180deg,#8fe0b0,#4fbf82);color:#06251a;border:1px solid #3aa26b}
+.fx{background-image:linear-gradient(180deg,#f5bd5c,#dd9a2c);color:#10233f;border:1px solid #c98a24}
+.vote a:hover{filter:brightness(1.08)}
+.links a{display:block;text-decoration:none;text-align:center;font-weight:bold;font-size:16.5px;padding:14px 18px;border-radius:12px;margin:0 0 10px;
+background-image:linear-gradient(180deg,#f5bd5c,#dd9a2c);color:#10233f;border:1px solid #c98a24;cursor:pointer}
+.links a:hover{filter:brightness(1.08)}
+.note{background:#0f1a2a;border:1px solid #2b3a55;border-radius:12px;padding:14px 18px;margin:14px 0;color:#c9d8ea;font-size:15px}
+.f{margin-top:38px;text-align:center;color:#6c88a8;font-size:13px}
+</style></head>
+<body>
+<div class="top">
+  <div style="color:#8fb7ff;font-size:13px;letter-spacing:2px;text-transform:uppercase">Фонд «Соратник» · Общероссийское офицерское собрание</div>
+  <h1>КАБИНЕТ СОВЕТА</h1>
+  <p>Проект «ЯВКА-75» · решения принимаются по каждому пункту отдельно</p>
+</div>
 <div class="wrap">
 
-<div class="sec">⛔ ВОПРОС 1: утверждение текста письма-приглашения (А1) — старт 11.09</div>
-<div class="card">
-<div class="t">📄 Письмо-приглашение руководителю организации — черновик А1</div>
-<div class="d">Первое касание Г1 (руководители). Концепция: информирование, без агитации. Отправитель: fondsoratnik@bk.ru. Персонализация и ссылка на витрину — при рассылке.</div>
-<a class="btn" href="/doc?path=%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F/%D0%A1%D0%BE%D0%B2%D0%B5%D1%82/%D0%901-%D0%9F%D0%B8%D1%81%D1%8C%D0%BC%D0%BE-%D0%BF%D1%80%D0%B8%D0%B3%D0%BB%D0%B0%D1%88%D0%B5%D0%BD%D0%B8%D0%B5-%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA.md">📄 Открыть черновик</a>
-</div>
+  <div class="note">
+    <b>Как голосовать — надёжный способ.</b> Нажмите «Ответить» на письмо от штаба и вставьте в тему письма <b>готовую строку</b> нужного решения (она указана под каждым пунктом). Так голос дойдёт из любой почтовой программы. Кнопки ниже делают то же самое, но требуют настроенной почты на вашем компьютере.
+  </div>
 
-<div class="sec">⛔ ВОПРОС 2: утверждение критериев рассылки (волны 1–3)</div>
-<div class="card">
-<div class="t">📄 Критерии рассылки — черновик</div>
-<div class="d">Волна 1: контрольная группа (11–17.09, 8–20 чел, TG-группы). Волна 2: руководители организаций до 1000 писем/сутки с аккаунта, ротация 10 аккаунтов (по указанию Директора 15.07→09.09). Правила: 1 письмо/чел, повтор ≥7 дней, отписка мгновенно, ПДн на D:\Сервер-ЕЦУ.</div>
-<a class="btn" href="/doc?path=%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F/%D0%A1%D0%BE%D0%B2%D0%B5%D1%82/%D0%9A%D1%80%D0%B8%D1%82%D0%B5%D1%80%D0%B8%D0%B8-%D1%80%D0%B0%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8-%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA.md">📄 Открыть черновик</a>
-</div>
+  <h2>Что утверждаем — шесть позиций, каждая отдельно</h2>
 
-<div class="sec">👥 СОСТАВ СОВЕТА — каналы доставки и статусы</div>
-<div id="members"></div>
+  <div class="card">
+    <h3>1. Витрина «ЯВКА-75»</h3>
+    <p class="what">Публичная страница: зачем идти, ответы на сомнения, рассказ о времени.</p>
+    <div class="tema">СОВЕТ-РЕШЕНИЕ-ВИТРИНА-УТВЕРЖДАЮ / СОВЕТ-РЕШЕНИЕ-ВИТРИНА-ПРАВКИ</div>
+    <div class="vote">
+      <a class="ok" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ВИТРИНА-УТВЕРЖДАЮ">✅ Утверждаю</a>
+      <a class="fx" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ВИТРИНА-ПРАВКИ">✏ Есть правки</a>
+    </div>
+  </div>
 
-<div class="sec">🗒 ХОД СОГЛАСОВАНИЯ (сводка)</div>
-<div id="summary" class="ps">—</div>
-<div class="ps">Каналы доставки: письмо — Халецкий, Лепехин (есть email); Telegram/телефон — Сотник, Мезенцев (email в базе нет). Члены Совета не имеют доступа к этому компьютеру — материалы доставляются письмами с вложением черновиков, статусы отмечаешь кнопками.</div>
+  <div class="card">
+    <h3>2. Завод АвтоКло — страница</h3>
+    <p class="what">Как устроена наша работа: образы, цифры, «было — стало», органы, принципы.</p>
+    <div class="tema">СОВЕТ-РЕШЕНИЕ-ЗАВОД-УТВЕРЖДАЮ / СОВЕТ-РЕШЕНИЕ-ЗАВОД-ПРАВКИ</div>
+    <div class="vote">
+      <a class="ok" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ЗАВОД-УТВЕРЖДАЮ">✅ Утверждаю</a>
+      <a class="fx" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ЗАВОД-ПРАВКИ">✏ Есть правки</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>3. Площадка сети</h3>
+    <p class="what">Общий вход для всех: кто мы, как вступить, формы заявок, материалы, новости, контакты.</p>
+    <div class="tema">СОВЕТ-РЕШЕНИЕ-ПЛОЩАДКА-УТВЕРЖДАЮ / СОВЕТ-РЕШЕНИЕ-ПЛОЩАДКА-ПРАВКИ</div>
+    <div class="vote">
+      <a class="ok" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ПЛОЩАДКА-УТВЕРЖДАЮ">✅ Утверждаю</a>
+      <a class="fx" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ПЛОЩАДКА-ПРАВКИ">✏ Есть правки</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>4. Письмо руководителям организаций</h3>
+    <p class="what">Текст приглашения для рассылки организациям (волна 1).</p>
+    <div class="tema">СОВЕТ-РЕШЕНИЕ-ПИСЬМО-ОРГ-УТВЕРЖДАЮ / СОВЕТ-РЕШЕНИЕ-ПИСЬМО-ОРГ-ПРАВКИ</div>
+    <div class="vote">
+      <a class="ok" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ПИСЬМО-ОРГ-УТВЕРЖДАЮ">✅ Утверждаю</a>
+      <a class="fx" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ПИСЬМО-ОРГ-ПРАВКИ">✏ Есть правки</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>5. Письмо членам Совета</h3>
+    <p class="what">Текст обращения к Совету с порядком голосования ответом на письмо.</p>
+    <div class="tema">СОВЕТ-РЕШЕНИЕ-ПИСЬМО-СОВЕТ-УТВЕРЖДАЮ / СОВЕТ-РЕШЕНИЕ-ПИСЬМО-СОВЕТ-ПРАВКИ</div>
+    <div class="vote">
+      <a class="ok" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ПИСЬМО-СОВЕТ-УТВЕРЖДАЮ">✅ Утверждаю</a>
+      <a class="fx" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ПИСЬМО-СОВЕТ-ПРАВКИ">✏ Есть правки</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>6. Письмо соратникам</h3>
+    <p class="what">Короткое обращение к своим: «в деле» одной строкой.</p>
+    <div class="tema">СОВЕТ-РЕШЕНИЕ-ПИСЬМО-СОРАТНИК-УТВЕРЖДАЮ / СОВЕТ-РЕШЕНИЕ-ПИСЬМО-СОРАТНИК-ПРАВКИ</div>
+    <div class="vote">
+      <a class="ok" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ПИСЬМО-СОРАТНИК-УТВЕРЖДАЮ">✅ Утверждаю</a>
+      <a class="fx" href="mailto:fondsoratnik@bk.ru?subject=СОВЕТ-РЕШЕНИЕ-ПИСЬМО-СОРАТНИК-ПРАВКИ">✏ Есть правки</a>
+    </div>
+  </div>
+
+  <h2>Материалы — открыть и посмотреть</h2>
+  <div class="links">
+    <a href="https://fondsoratnik.github.io/-/">Площадка сети — общий вход для всех</a>
+    <a href="https://fondsoratnik.github.io/-/vitrina-3.html">Витрина «ЯВКА-75»</a>
+    <a href="https://fondsoratnik.github.io/-/zavod-3.html">Завод АвтоКло</a>
+  </div>
+  <div class="note">
+    Срок решения — <b>до 15 сентября</b>. Если удобнее обсудить голосом или письмом с правками в свободной форме — пишите на <a href="mailto:fondsoratnik@bk.ru">fondsoratnik@bk.ru</a>: учтём и внесём.
+  </div>
+
+  <div class="f">Кабинет Совета · проект «ЯВКА-75» · фонд «Соратник» · 2026</div>
 </div>
-<script>
-function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-var MEMBERS=[
- {n:'Сотник Сергей Аркадьевич',ch:'Тел: 7-926-200-56-08 · Telegram («телег») · Москва, «Советский Союз» · почта sos454@yandex.ru',mail:'sos454@yandex.ru',tel:'tel:+79262005608'},
- {n:'Лепехин Владимир Анатольевич',ch:'Тел: 7-915-066-25-88 · Telegram («телег») · почта info@i-eeu.ru',mail:'info@i-eeu.ru',tel:'tel:+79150662588'},
- {n:'Мезенцев Геннадий Николаевич (РАН)',ch:'Тел: +7-916-796-24-47 · почта mezentsev.gn@yandex.ru · из мобилы Директора (АНК-1380)',mail:'mezentsev.gn@yandex.ru',tel:'tel:+79167962447'},
- {n:'Халецкий Валентин Николаевич',ch:'Тел: 8-925-514-30-15, 8-989-185-57-14 · почта v.yanko@mail.ru · Режиссёр, Креатоведение',mail:'v.yanko@mail.ru',tel:'tel:+89255143015'}
-];
-var DEC=[
- {id:'q1',t:'Письмо-приглашение (А1)',doc:'А1-Письмо-приглашение-черновик.md'},
- {id:'q2',t:'Критерии рассылки',doc:'Критерии-рассылки-черновик.md'}
-];
-var ST={}; try{ST=JSON.parse(localStorage.getItem('sovet_kabinet')||'{}')}catch(e){}
-function save(){try{localStorage.setItem('sovet_kabinet',JSON.stringify(ST))}catch(e){}}
-function setStatus(mid,mi,val){ST[mid+'_'+mi]=val;save();renderMembers();renderSummary()}
-function renderMembers(){
- var w=document.getElementById('members'),h='';
- MEMBERS.forEach(function(m,mi){
-  h+='<div class="card"><div class="t">'+esc(m.n)+'</div><div class="d">'+esc(m.ch)+'</div>';
-  DEC.forEach(function(d,di){
-   var key=m.n+' | '+d.t;
-   var st=ST[key]||'';
-   h+='<div class="mrow"><span class="nm">📌 '+esc(d.t)+'</span>';
-   h+='<a class="btn sn" href="mailto:'+m.mail+'?subject='+encodeURIComponent('СОВЕТ-РЕШЕНИЕ-'+(di+1)+': '+d.t)+'&body='+encodeURIComponent('Члены Совета: для утверждения ответьте на это письмо одним словом УТВЕРЖДАЮ. Для правок — ПРАВКИ и текст правок.')+'">✉ ОТПРАВИТЬ ГОЛОС ПИСЬМОМ</a>';
-   h+='<button class="btn sn" onclick="mark('+mi+','+di+',\'sent\')">Голос отправлен</button>';
-   h+='<button class="btn ok" onclick="mark('+mi+','+di+',\'ok\')">✅ УТВЕРЖДАЮ (отправить голос)</button>';
-   h+='<button class="btn fx" onclick="mark('+mi+','+di+',\'fixes\')">✏ ЕСТЬ ПРАВКИ (написать)</button>';
-   h+='<span class="st">'+(st==='ok'?'утвердил':(st==='fixes'?'есть правки':(st==='sent'?'материалы отправлены':'')))+'</span></div>';
-   if(st==='fixes'){h+='<textarea class="note" id="note-'+mi+'-'+di+'" placeholder="Суть правок члена Совета…">'+esc(ST[key+'_note']||'')+'</textarea><button class="btn" onclick="saveNote('+mi+','+di+')">💾 Сохранить мои правки</button>';}
-  });
-  h+='</div>';
- });
- w.innerHTML=h;
-}
-function mark(mi,di,val){
- var key=MEMBERS[mi].n+' | '+DEC[di].t;
- ST[key]=val;
- if(val==='fixes'){renderMembers();setTimeout(function(){var n=document.getElementById('note-'+mi+'-'+di);if(n)n.focus()},50)}
- else{delete ST[key+'_note'];save();renderMembers();renderSummary()}
-}
-function saveNote(mi,di){
- var key=MEMBERS[mi].n+' | '+DEC[di].t+'_note';
- var n=document.getElementById('note-'+mi+'-'+di);
- if(n){ST[key]=n.value;save();renderSummary()}
-}
-function renderSummary(){
- var lines=[];
- DEC.forEach(function(d,di){
-  var ok=0,fx=0,sn=0;
-  MEMBERS.forEach(function(m,mi){
-   var st=ST[m.n+' | '+d.t]||'';
-   if(st==='ok')ok++;else if(st==='fixes')fx++;else if(st==='sent')sn++;
-  });
-  lines.push('📌 '+d.t+': утвердили '+ok+' из 4 · отправлено '+sn+' · правки '+fx);
- });
- document.getElementById('summary').innerHTML=lines.join('<br>')+'<br>Когда все 4 утвердили — напиши Кло «выпускать»: письмо уходит волне 1.';
-}
-renderMembers();renderSummary();
-</script>
-</body></html>
+</body>
+</html>
